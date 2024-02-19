@@ -1,0 +1,14 @@
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\bin\Debug\net8.0\MEPSortingAlgorithms.exe
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\bin\Debug\net8.0\MEPSortingAlgorithms.deps.json
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\bin\Debug\net8.0\MEPSortingAlgorithms.runtimeconfig.json
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\bin\Debug\net8.0\MEPSortingAlgorithms.dll
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\bin\Debug\net8.0\MEPSortingAlgorithms.pdb
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\obj\Debug\net8.0\MEPSortingAlgorithms.GeneratedMSBuildEditorConfig.editorconfig
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\obj\Debug\net8.0\MEPSortingAlgorithms.AssemblyInfoInputs.cache
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\obj\Debug\net8.0\MEPSortingAlgorithms.AssemblyInfo.cs
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\obj\Debug\net8.0\MEPSortingAlgorithms.csproj.CoreCompileInputs.cache
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\obj\Debug\net8.0\MEPSortingAlgorithms.dll
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\obj\Debug\net8.0\refint\MEPSortingAlgorithms.dll
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\obj\Debug\net8.0\MEPSortingAlgorithms.pdb
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\obj\Debug\net8.0\MEPSortingAlgorithms.genruntimeconfig.cache
+D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\obj\Debug\net8.0\ref\MEPSortingAlgorithms.dll
