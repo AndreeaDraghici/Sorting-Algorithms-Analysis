@@ -1,15 +1,23 @@
-﻿
-using MEPSortingAlgorithms;
-using MEPSortingAlgorithms.seqvential;
+﻿using MEPSortingAlgorithms.seqvential;
+using MEPSortingAlgorithms.utils;
+
+namespace MEPSortingAlgorithms
+{
+    public class Program
+    {
+   
+        public static void Main(string[] args)
+        {
+            ArgumentNullException.ThrowIfNull(args);
+
+            Constants constants = new();
+
+            // RandomGenerator generator = new RandomGenerator();
+
+            // generator.generateInputDataSet(10000, 10000, constants.filePath); // Dimensiunea setului de date
 
 
-//RandomGenerator generator = new RandomGenerator();
-
-//generator.generateInputData(10); // Dimensiunea setului de date
-
-
-
-// Calea absolută către fișierul de intrare
-string filePath = @"D:\Data\Work\Proiect MEP\MEPSortingAlgorithms\MEPSortingAlgorithms\input\data10000.txt";
-
-BubbleSort.RunBubbleSort(filePath);
+            BubbleSort.RunBubbleSort(constants.filePath);
+        }
+    }
+}

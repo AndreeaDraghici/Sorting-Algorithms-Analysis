@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace MEPSortingAlgorithms.seqvential
 {
@@ -12,11 +7,13 @@ namespace MEPSortingAlgorithms.seqvential
 
         public BubbleSort() { }
 
-        public static void RunBubbleSort(string filePath)
+        public static void RunBubbleSort(string inputFilePath)
         {
 
             // Citirea setului de date din fișier
-            int[] arr = ReadDataFromFile(filePath);
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+            int[] arr = ReadDataFromFile(inputFilePath);
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 
             if (arr == null)
             {
@@ -29,7 +26,7 @@ namespace MEPSortingAlgorithms.seqvential
             PrintArray(arr);
 
             // Sortarea setului de date folosind Bubble Sort și măsurarea timpului de execuție
-            Stopwatch stopwatch = new Stopwatch();
+            Stopwatch stopwatch = new();
             stopwatch.Start();
             BubbleSortAlgorithm(arr);
             stopwatch.Stop();
@@ -38,14 +35,14 @@ namespace MEPSortingAlgorithms.seqvential
             // Afișarea setului de date sortat și timpul de execuție
             Console.WriteLine("\nArray after sorting:");
             PrintArray(arr);
-            Console.WriteLine("\nTime taken to sort: " + elapsedTime.TotalSeconds + " seconds");
+            Console.WriteLine("\nTime taken to sort: " + (elapsedTime.TotalSeconds * 10) + " seconds");
         }
 
-        private static int[]? ReadDataFromFile(string filePath)
+        private static int[]? ReadDataFromFile(string inputFilePath)
         {
             try
             {
-                string[] data = File.ReadAllText(filePath).Trim().Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] data = File.ReadAllText(inputFilePath).Trim().Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
                 int[] arr = new int[data.Length];
                 for (int i = 0; i < data.Length; i++)
                 {
@@ -57,7 +54,7 @@ namespace MEPSortingAlgorithms.seqvential
                 }
                 return arr;
             }
-            catch (Exception ex) when (ex is IOException || ex is FormatException)
+            catch (Exception ex) when (ex is IOException or FormatException)
             {
                 Console.WriteLine($"Error reading from file: {ex.Message}");
                 return null;
@@ -66,7 +63,7 @@ namespace MEPSortingAlgorithms.seqvential
 
         private static void PrintArray(int[] arr)
         {
-            foreach (var item in arr)
+            foreach (int item in arr)
             {
                 Console.Write(item + " ");
             }
@@ -83,9 +80,7 @@ namespace MEPSortingAlgorithms.seqvential
                     if (arr[j] > arr[j + 1])
                     {
                         // swap temp and arr[i]
-                        int temp = arr[j];
-                        arr[j] = arr[j + 1];
-                        arr[j + 1] = temp;
+                        (arr[j + 1], arr[j]) = (arr[j], arr[j + 1]);
                     }
                 }
             }

@@ -22,5 +22,5 @@ Sequential C# + Parallel with C# Threads.
 4. Simulate different scenarios such as already sorted datasets, reverse sorted datasets, datasets with duplicate elements and evaluate the performance of algorithms in these scenarios.
 
 ### About Local Infrastructure
-- CPU: Inter(R) Core(TM) i7-10870H @ 2.20 GHz
+- CPU: Intel(R) Core(TM) i7-10870H @ 2.20 GHz
 - GPU:  NVIDIA GeForce RTX 2060
