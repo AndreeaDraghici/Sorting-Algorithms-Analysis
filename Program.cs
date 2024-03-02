@@ -1,23 +1,27 @@
-﻿using MEPSortingAlgorithms.algorith.seqvential;
+﻿using MEPSortingAlgorithms.implementation;
 using MEPSortingAlgorithms.utils;
 
 namespace MEPSortingAlgorithms
 {
     public class Program
     {
-   
+
         public static void Main(string[] args)
         {
-            ArgumentNullException.ThrowIfNull(args);
+            try
+            {
+                ISortHelper sortHelper = new SortHelper();
+                Constants constants = new Constants();
 
-            Constants constants = new();
+                SeqventialSortingManager executeSorting = new SeqventialSortingManager(sortHelper, constants.filePath);
+                executeSorting.RunAndExportSortingAlgorithms(constants.secventialOutputPath);
 
-            // RandomGenerator generator = new RandomGenerator();
-
-            // generator.generateInputDataSet(10000, 10000, constants.filePath); // Dimensiunea setului de date
-
-
-            BubbleSort.RunBubbleSort(constants.filePath);
+                Console.WriteLine("Sorting algorithms executed and results exported successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred during the execution: {ex.Message}");
+            }
         }
     }
 }

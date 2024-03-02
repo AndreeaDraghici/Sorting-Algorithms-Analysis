@@ -12,7 +12,7 @@ namespace MEPSortingAlgorithms.algorith.seqvential
             this.sortHelper = sortHelper;
         }
 
-        public void RunSelectionSort(string inputFilePath)
+        public double RunSelectionSort(string inputFilePath)
         {
             ArgumentNullException.ThrowIfNull(inputFilePath);
 
@@ -21,7 +21,7 @@ namespace MEPSortingAlgorithms.algorith.seqvential
             if (arr is null)
             {
                 Console.WriteLine("Input file is empty or contains invalid data.");
-                return;
+                return -1;
             }
 
             Console.WriteLine("Array before sorting:");
@@ -34,7 +34,11 @@ namespace MEPSortingAlgorithms.algorith.seqvential
 
             Console.WriteLine("\nArray after sorting:");
             sortHelper.PrintArray(arr);
+
+            double executionTime = stopwatch.Elapsed.TotalSeconds * 10;
             Console.WriteLine($"\nTime taken to sort: {stopwatch.Elapsed.TotalSeconds * 10} seconds");
+
+            return executionTime;
         }
 
         private void SelectionSortAlgorithm(int[] arr)
