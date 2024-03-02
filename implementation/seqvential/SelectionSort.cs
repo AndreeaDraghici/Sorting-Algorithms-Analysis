@@ -1,4 +1,4 @@
-﻿using MEPSortingAlgorithms.utils;
+﻿using MEPSortingAlgorithms.utils.iface;
 using System.Diagnostics;
 
 namespace MEPSortingAlgorithms.algorith.seqvential
@@ -16,7 +16,9 @@ namespace MEPSortingAlgorithms.algorith.seqvential
         {
             ArgumentNullException.ThrowIfNull(inputFilePath);
 
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             int[] arr = sortHelper.ReadDataFromFile(inputFilePath);
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 
             if (arr is null)
             {

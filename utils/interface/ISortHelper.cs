@@ -1,4 +1,4 @@
-﻿namespace MEPSortingAlgorithms.utils
+﻿namespace MEPSortingAlgorithms.utils.iface
 {
     public interface ISortHelper
     {

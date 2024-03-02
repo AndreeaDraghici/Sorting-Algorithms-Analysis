@@ -1,5 +1,6 @@
 ﻿using MEPSortingAlgorithms.implementation;
 using MEPSortingAlgorithms.utils;
+using MEPSortingAlgorithms.utils.iface;
 
 namespace MEPSortingAlgorithms
 {
@@ -11,9 +12,10 @@ namespace MEPSortingAlgorithms
             try
             {
                 ISortHelper sortHelper = new SortHelper();
+                IExecutionTimeManager executionTimeManager = new ExecutionTimeManager();
                 Constants constants = new Constants();
 
-                SeqventialSortingManager executeSorting = new SeqventialSortingManager(sortHelper, constants.filePath);
+                SeqventialSortingManager executeSorting = new SeqventialSortingManager(sortHelper, constants.filePath, executionTimeManager);
                 executeSorting.RunAndExportSortingAlgorithms(constants.secventialOutputPath);
 
                 Console.WriteLine("Sorting algorithms executed and results exported successfully.");

@@ -1,5 +1,5 @@
 ﻿using MEPSortingAlgorithms.algorith.seqvential;
-using MEPSortingAlgorithms.utils;
+using MEPSortingAlgorithms.utils.iface;
 using OfficeOpenXml;
 
 
@@ -9,11 +9,13 @@ namespace MEPSortingAlgorithms.implementation
     {
         private readonly ISortHelper sortHelper;
         private readonly string filePath;
+        private readonly IExecutionTimeManager executionTimeManager;
 
-        public SeqventialSortingManager(ISortHelper sortHelper, string filePath)
+        public SeqventialSortingManager(ISortHelper sortHelper, string filePath, IExecutionTimeManager executionTimeManager)
         {
             this.sortHelper = sortHelper;
             this.filePath = filePath;
+            this.executionTimeManager = executionTimeManager;
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
         }
 
@@ -34,9 +36,9 @@ namespace MEPSortingAlgorithms.implementation
                     double quickTime = quickSort.RunQuickSort(filePath);
 
                     // Add execution times to the Excel sheet
-                    AddExecutionTimeToExcelSheet(excel, "BubbleSort", bubbleTime);
-                    AddExecutionTimeToExcelSheet(excel, "SelectionSort", selectionTime);
-                    AddExecutionTimeToExcelSheet(excel, "QuickSort", quickTime);
+                    executionTimeManager.AddExecutionTimeToExcelSheet(excel, "BubbleSort", bubbleTime);
+                    executionTimeManager.AddExecutionTimeToExcelSheet(excel, "SelectionSort", selectionTime);
+                    executionTimeManager.AddExecutionTimeToExcelSheet(excel, "QuickSort", quickTime);
 
                     // Save the Excel file
                     FileInfo fileInfo = new FileInfo(outputExcelPath);
@@ -47,33 +49,6 @@ namespace MEPSortingAlgorithms.implementation
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
-            }
-        }
-
-        private static void AddExecutionTimeToExcelSheet(ExcelPackage excel, string algorithmName, double executionTime, string sheetName = "Execution Times")
-        {
-            try
-            {
-                // Attempt to access or create the worksheet
-                var worksheet = excel.Workbook.Worksheets[sheetName] ?? excel.Workbook.Worksheets.Add(sheetName);
-                int row = worksheet.Dimension?.Rows + 1 ?? 1; // Calculate the next available row
-
-                // If it's the first row, add headers
-                if (row == 1)
-                {
-                    worksheet.Cells["A1"].Value = "Algorithm";
-                    worksheet.Cells["B1"].Value = "Execution Time (Seconds)";
-                    row++; // Increment row to ensure data starts from the second row
-                }
-
-                // Add algorithm name and execution time to the sheet
-                worksheet.Cells[row, 1].Value = algorithmName;
-                worksheet.Cells[row, 2].Value = executionTime;
-            }
-            catch (Exception ex)
-            {
-                // Log or handle the error appropriately
-                Console.WriteLine($"An error occurred while adding data to the sheet '{sheetName}': {ex.Message}");
             }
         }
     }
