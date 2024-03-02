@@ -1,4 +1,4 @@
-﻿using MEPSortingAlgorithms.seqvential;
+﻿using MEPSortingAlgorithms.algorith.seqvential;
 using MEPSortingAlgorithms.utils;
 
 namespace MEPSortingAlgorithms

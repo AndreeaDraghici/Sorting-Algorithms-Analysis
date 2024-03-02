@@ -1,4 +1,4 @@
-﻿namespace MEPSortingAlgorithms.utils
+﻿namespace MEPSortingAlgorithms.algorith
 {
     public class RandomGenerator
     {
