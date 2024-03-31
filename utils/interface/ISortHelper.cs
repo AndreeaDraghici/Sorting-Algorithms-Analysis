@@ -3,6 +3,6 @@
     public interface ISortHelper
     {
         int[]? ReadDataFromFile(string filePath);
-        void PrintArray(int[] arr);
+        void PrintArray(int[] arr, string message);
     }
 }

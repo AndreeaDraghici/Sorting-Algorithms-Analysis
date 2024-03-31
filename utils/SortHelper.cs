@@ -4,14 +4,16 @@ namespace MEPSortingAlgorithms.utils
 {
     public class SortHelper : ISortHelper
     {
-        public void PrintArray(int[] arr)
+        public void PrintArray(int[] arr, string message)
         {
+            Console.WriteLine($"{message}:");
             foreach (int item in arr)
             {
                 Console.Write(item + " ");
             }
             Console.WriteLine();
         }
+
 
         public int[]? ReadDataFromFile(string filePath)
         {
