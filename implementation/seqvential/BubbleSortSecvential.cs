@@ -3,10 +3,10 @@ using System.Diagnostics;
 
 namespace MEPSortingAlgorithms.algorith.seqvential
 {
-    public class BubbleSort
+    public class BubbleSortSecvential
     {
         private readonly ISortHelper sortHelper;
-        public BubbleSort(ISortHelper sortHelper)
+        public BubbleSortSecvential(ISortHelper sortHelper)
         {
             this.sortHelper = sortHelper;
         }
@@ -15,9 +15,8 @@ namespace MEPSortingAlgorithms.algorith.seqvential
         {
             ArgumentNullException.ThrowIfNull(inputFilePath);
 
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             int[] arr = sortHelper.ReadDataFromFile(inputFilePath);
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+
 
             if (arr is null)
             {
@@ -25,17 +24,15 @@ namespace MEPSortingAlgorithms.algorith.seqvential
                 return -1;
             }
 
-            Console.WriteLine("Array before sorting:");
-            sortHelper.PrintArray(arr);
+         
+            sortHelper.PrintArray(arr, "Array before sorting: ");
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             BubbleSortAlgorithm(arr);
             stopwatch.Stop();
 
-            Console.WriteLine("\nArray after sorting:");
-            sortHelper.PrintArray(arr);
-
+            sortHelper.PrintArray(arr, "Array after sorting: ");
 
             double executionTime = stopwatch.Elapsed.TotalSeconds * 10;
             Console.WriteLine($"\nTime taken to sort: {executionTime} seconds");

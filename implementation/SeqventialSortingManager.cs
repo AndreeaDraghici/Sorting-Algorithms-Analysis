@@ -26,9 +26,9 @@ namespace MEPSortingAlgorithms.implementation
                 using (ExcelPackage excel = new ExcelPackage())
                 {
                     // Initialize sorting algorithms
-                    BubbleSort bubbleSort = new BubbleSort(sortHelper);
-                    SelectionSort selectionSort = new SelectionSort(sortHelper);
-                    QuickSort quickSort = new QuickSort(sortHelper);
+                    BubbleSortSecvential bubbleSort = new BubbleSortSecvential(sortHelper);
+                    SelectionSortSecvential selectionSort = new SelectionSortSecvential(sortHelper);
+                    QuickSortSecvential quickSort = new QuickSortSecvential(sortHelper);
 
                     // Execute sorting algorithms and capture execution times
                     double bubbleTime = bubbleSort.RunBubbleSort(filePath);

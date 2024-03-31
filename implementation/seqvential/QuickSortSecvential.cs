@@ -3,11 +3,11 @@ using System.Diagnostics;
 
 namespace MEPSortingAlgorithms.algorith.seqvential
 {
-    public class QuickSort
+    public class QuickSortSecvential
     {
         private readonly ISortHelper sortHelper;
 
-        public QuickSort(ISortHelper sortHelper)
+        public QuickSortSecvential(ISortHelper sortHelper)
         {
             this.sortHelper = sortHelper;
         }
@@ -17,9 +17,8 @@ namespace MEPSortingAlgorithms.algorith.seqvential
 
             ArgumentNullException.ThrowIfNull(inputFilePath);
 
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             int[] arr = sortHelper.ReadDataFromFile(inputFilePath);
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+
 
             if (arr is null)
             {
@@ -27,18 +26,16 @@ namespace MEPSortingAlgorithms.algorith.seqvential
                 return -1;
             }
 
-            Console.WriteLine("Array before sorting:");
-            sortHelper.PrintArray(arr);
+            sortHelper.PrintArray(arr, "Array before sorting: ");
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             QuickSortAlgorithm(arr, 0, arr.Length - 1);
             stopwatch.Stop();
 
-            Console.WriteLine("\nArray after sorting:");
-            sortHelper.PrintArray(arr);
-            double executionTime = stopwatch.Elapsed.TotalSeconds * 10;
+            sortHelper.PrintArray(arr, "Array after sorting: ");
 
+            double executionTime = stopwatch.Elapsed.TotalSeconds * 10;
             Console.WriteLine($"\nTime taken to sort: {executionTime} seconds");
 
             return executionTime;
@@ -63,7 +60,8 @@ namespace MEPSortingAlgorithms.algorith.seqvential
             int pivot = arr[high];
             int i = (low - 1);
 
-            // Rearranges elements so that those smaller than the pivot are on the left of it and those larger are on the right.
+            // Rearranges elements so that those smaller than the pivot
+            // are on the left of it and those larger are on the right.
             for (int idx = low; idx < high; idx++)
             {
                 // If current element is smaller than the pivot
@@ -84,3 +82,5 @@ namespace MEPSortingAlgorithms.algorith.seqvential
         }
     }
 }
+
+
