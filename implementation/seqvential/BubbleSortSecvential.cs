@@ -34,7 +34,7 @@ namespace MEPSortingAlgorithms.algorith.seqvential
 
             sortHelper.PrintArray(arr, "Array after sorting: ");
 
-            double executionTime = stopwatch.Elapsed.TotalSeconds * 10;
+            double executionTime = stopwatch.Elapsed.TotalSeconds;
             Console.WriteLine($"\nTime taken to sort: {executionTime} seconds");
             return executionTime; // Return the sorted array.
         }
