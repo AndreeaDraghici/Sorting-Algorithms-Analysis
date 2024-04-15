@@ -3,8 +3,7 @@ Performance analysis sorting algorithms in the C# language.
 
 
 ### Description
-Developed a C# application that parses performance using the Performance Profiler tool a sorting algorithms in a variety of set sizes data. The data sets will be randomly generated. Time measurement of execution of each algorithm using Stopwatch.
-
+The problem studied in the context of the mentioned project focuses on the analysis performance of sorting algorithms in the C# programming language. This involves an investigation of three sorting algorithms to evaluate their effectiveness in execution time terms. The main objective is to identify the algorithm or algorithms sorting the most suitable for different types of data sets.
 
 ### Algorithms implemented
 **Bubble Sort:** A simple comparison-based algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
@@ -26,7 +25,7 @@ Two main approaches were used to analyze the performance of the implemented algo
 1. Implemented Bubble Sort algorithm, Selection Sort algorithm and Quick Sort algorithm in C#.
 2. Developed application that generates random data sets sizes and evaluates the sorting time for each algorithm using these data sets.
 3. Measuring and comparing the sorting time of each algorithm for each scenario and dataset size.
-4. The application generates random datasets of various sizes (e.g., 100, 1,000, 10,000 elements) for testing purposes.
+4. The application generates random datasets of various sizes (e.g., 10, 100, 1.000, 10.000, 100.000 elements) for testing purposes.
 
 
 ### About Local Infrastructure
