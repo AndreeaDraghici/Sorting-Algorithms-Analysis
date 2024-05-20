@@ -2,6 +2,9 @@
 using MEPSortingAlgorithms.algorith;
 using MEPSortingAlgorithms.utils.iface;
 using MEPSortingAlgorithms.implementation;
+using BenchmarkDotNet.Running;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Reports;
 
 
 namespace MEPSortingAlgorithms
@@ -18,10 +21,13 @@ namespace MEPSortingAlgorithms
                 Console.WriteLine("1: Generate Random Input Data");
                 Console.WriteLine("2: Execute Sequential Sorting");
                 Console.WriteLine("3: Execute Parallel Sorting");
-                Console.WriteLine("4: Exit");
-                Console.Write("Select an option (1-4): ");
+                Console.WriteLine("4: Run Benchmarks");
+                Console.WriteLine("5: Exit");
+                Console.Write("Select an option (1-5): ");
 
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 string option = Console.ReadLine();
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 
                 switch (option)
                 {
@@ -35,6 +41,9 @@ namespace MEPSortingAlgorithms
                         await ExecuteParallelSorting();
                         break;
                     case "4":
+                        RunBenchmarks();
+                        break;
+                    case "5":
                         exit = true;
                         Console.WriteLine("Exiting...");
                         break;
@@ -108,6 +117,16 @@ namespace MEPSortingAlgorithms
             {
                 Console.WriteLine($"An error occurred during the parallel sorting execution: {ex.Message}");
             }
+        }
+
+        private static void RunBenchmarks()
+        {
+            var config = ManualConfig.Create(DefaultConfig.Instance)
+               .WithSummaryStyle(SummaryStyle.Default.WithTimeUnit(Perfolizer.Horology.TimeUnit.Second))
+               .AddColumn(new SecondsTimeFormatter());
+
+            var summary = BenchmarkRunner.Run<Benchmark>(config);
+            Console.WriteLine(summary);
         }
     }
 }
